@@ -1,0 +1,22 @@
+"""
+Given an integer array nums of size n, return the number with the value closest to 0 in nums. If there are multiple answers, return the number with the largest value.
+"""
+
+from typing import List
+
+testCase1 = [-4,-2,1,4,8]
+testCase2 = [2.-1,1]
+testCase3 = [-10, 10, 10, -10000]
+
+class Solution:
+    def findClosestNumber(self, nums: List[int]) -> int:
+        closestNum = nums[0]
+        if len(nums) == 2 and nums[0] == nums [1]:
+            return nums[0]
+        for num in nums:
+            if abs(num) < abs(closestNum):
+                closestNum = num
+            checkLrgNum = abs(closestNum)
+            if checkLrgNum in nums:
+                closestNum = checkLrgNum
+        return closestNum

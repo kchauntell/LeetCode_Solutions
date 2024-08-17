@@ -1,0 +1,33 @@
+"""
+You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+
+Return the merged string.
+"""
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        lenWord1 = len(word1)
+        lenWord2 = len(word2)
+        leftover = ""
+        merged = ""
+        length = 0
+        
+        if lenWord1 != lenWord2:    
+            if lenWord1 > lenWord2:
+                length = lenWord2
+                leftover += word1[length:]
+                print(leftover)
+            else:
+                length = lenWord1
+                leftover += word2[length:]
+                print(leftover)
+        else: 
+            length = lenWord1
+
+        for i in range(length):
+            merged += word1[i]
+            merged += word2[i]
+        
+        final = merged + leftover
+
+        return final
